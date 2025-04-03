@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Reviews</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/reviews.css" />
+  </head>
+  <body>
+    <header>
+      <div id="headerdiv">
+        <h1>Flopinion</h1>
+        <p>A safe space for your bad opinions.</p>
+      </div>
+      <div id="headerNav">
+        <a id="moviesNav" href="/">List Movies</a>
+        <a id="reviewsNav" href="/reviews">All reviews</a>
+      </div>
+    </header>
+    <h1>All Reviews</h1>
+    <% movies.forEach(movie => { %>
+    <div class="reviewDiv">
+      <h2>Reviews for <%= movie.title %> (<%= movie.year %>)</h2>
+      <% reviews.forEach(review => { %> <% if (Number(review.id) === movie.id) {
+      %>
+      <div class="review">
+        <p class="name"><%= review.name %></p>
+        <p class="text"><%= review.text %></p>
+      </div>
+      <% } %> <% }) %>
+    </div>
+    <% }) %>
+    <div class="container">
+      <a href="/">Back to Home</a>
+    </div>
+  </body>
+</html>

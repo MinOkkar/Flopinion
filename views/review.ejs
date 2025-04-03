@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review <%= movie.title %></title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/review.css" />
+  </head>
+  <body>
+    <header>
+      <div id="headerdiv">
+        <h1>Flopinion</h1>
+        <p>A safe space for your bad opinions.</p>
+      </div>
+      <div id="headerNav">
+        <a id="moviesNav" href="/">List Movies</a>
+        <a id="reviewsNav" href="/reviews">All reviews</a>
+      </div>
+    </header>
+    <section>
+      <h1>Review for <%= movie.title %> (<%= movie.year %>)</h1>
+
+      <form action="/submit-review" method="POST">
+        <input type="hidden" name="movieId" value="<%= movie.id %>" />
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <textarea
+          id="msg"
+          name="review"
+          placeholder="Write your review here..."
+          required
+        ></textarea
+        ><br />
+        <button type="submit">Submit Review</button>
+      </form>
+      <a href="/">Back to Movies</a>
+    </section>
+  </body>
+</html>

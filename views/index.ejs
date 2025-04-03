@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flopinion</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <header>
+      <div id="headerdiv">
+        <h1>Flopinion</h1>
+        <p>A safe space for your bad opinions.</p>
+      </div>
+      <div id="headerNav">
+        <a id="moviesNav" href="/">List Movies</a>
+        <a id="reviewsNav" href="/reviews">All reviews</a>
+      </div>
+    </header>
+    <section id="movies">
+      <% movies.forEach(movie => { %>
+      <div class="movie">
+        <img src="<%= movie.photo %>" alt="<%= movie.title %>" />
+        <div class="infoDiv">
+          <h3 class="title"><%= movie.title %></h3>
+          <p class="description"><%= movie.description%></p>
+          <p class="year"><%= movie.year%></p>
+          <a class="view" href="/review/<%= movie.id %>">Review</a>
+        </div>
+      </div>
+      <% }) %>
+    </section>
+  </body>
+</html>
